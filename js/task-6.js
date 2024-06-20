@@ -20,9 +20,13 @@ function createBoxes(amount) {
   boxes.insertAdjacentHTML('beforeend', markup);
 }
 
-createBtn.addEventListener('click', () => {
+createBtn.addEventListener('focus', () => {
   const numberOfBoxes = parseInt(input.value);
   createBoxes(numberOfBoxes);
+  input.value = '';
+});
+createBtn.addEventListener('blur', () => {
+  boxes.innerHTML = '';
 });
 
 destroyBtn.addEventListener('click', () => {
