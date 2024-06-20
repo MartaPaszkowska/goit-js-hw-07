@@ -14,7 +14,10 @@ const images = [
   },
 ];
 const markup = images
-  .map(image => `<li> <img url = "${image.url}" alt = "${image.alt}"> </li>`)
+  .map(
+    image =>
+      `<li><img src="${image.url}" alt="${image.alt}" width="50%" height="50%"></li>`
+  )
   .join('');
 
 const gallery = document.querySelector('.gallery');
@@ -23,6 +26,5 @@ console.log(markup);
 
 gallery.style.display = 'flex';
 gallery.style.flexDirection = 'column';
-gallery.style.alignItems = 'center';
 gallery.style.listStyle = 'none';
 gallery.style.gap = '25px';
