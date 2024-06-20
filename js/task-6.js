@@ -10,14 +10,13 @@ const destroyBtn = document.querySelector('#controls button[data-destroy]');
 const boxes = document.querySelector('#boxes');
 
 function createBoxes(amount) {
-  let markup = '';
   for (let i = 0; i < amount; i++) {
-    let pixels = 30 + i * 10;
-    let divCode = `<div style="width:${pixels}px; height:${pixels}px; background-color:${getRandomHexColor()}"></div>`;
-
-    markup += divCode;
+    if (amount > 0 && amount <= 100) {
+      let pixels = 30 + i * 10;
+      const divCode = `<div style="width:${pixels}px; height:${pixels}px; background-color:${getRandomHexColor()}"></div>`;
+      boxes.insertAdjacentHTML('beforeend', divCode);
+    }
   }
-  boxes.insertAdjacentHTML('beforeend', markup);
 }
 
 createBtn.addEventListener('focus', () => {
@@ -28,7 +27,6 @@ createBtn.addEventListener('focus', () => {
 createBtn.addEventListener('blur', () => {
   boxes.innerHTML = '';
 });
-
 destroyBtn.addEventListener('click', () => {
   boxes.innerHTML = '';
   input.value = '';
